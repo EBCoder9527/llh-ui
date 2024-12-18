@@ -9,10 +9,14 @@
     "preview": "vite preview",
     "build:components": "node --trace-warnings ./build/build.js",
     "build:components-h5": "node --trace-warnings ./build/build-h5.js",
+    "build:web-components": "node --trace-warnings ./build/build-web.js",
     "lib": "npm run build:components",
-    "lib:eb-h5-ui": "npm run build:components-h5"
+    "lib:eb-h5-ui": "npm run build:components-h5",
+    "lib:eb-web-ui": "npm run build:web-components"
   },
   "dependencies": {
+    "ant-design-vue": "^4.2.6",
+    "dayjs": "^1.11.13",
     "element-plus": "^2.7.7",
     "js-audio-recorder": "^1.0.7",
     "pinia": "^2.1.7",
