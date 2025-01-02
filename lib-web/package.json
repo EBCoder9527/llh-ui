@@ -1,11 +1,16 @@
 {
   "name": "llh-web-components",
-  "version": "1.1.1",
-  "description": "web vue antdv",
+  "version": "1.1.6",
+  "description": "web vue antdv echarts",
   "main": "llh-web-ui.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "keywords": [
+    "web",
+    "vue",
+    "antdv"
+  ],
   "author": "eb",
   "license": "ISC"
 }

@@ -1,6 +1,6 @@
 //package/index.js
-import { App } from "vue";
-const components = import.meta.glob("./**/*.vue", { eager: true });
+// import { App } from "vue";
+const components = import.meta.glob("./**/!(echarts)/**/*.vue", { eager: true });
 // 批量组件注册
 const install = function (App) {
   for (let i in components) {

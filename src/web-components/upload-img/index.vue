@@ -6,7 +6,9 @@
     :on-preview="handlePreview"
     :on-remove="handleRemove"
     :maxCount="maxCount"
+    :disabled="disabled"
     accept="image/*"
+    :multiple="multiple"
   >
     <div>
       <PlusOutlined />
@@ -15,24 +17,24 @@
   </a-upload>
 
   <!-- 弹出预览图片 -->
-  <a-modal
-    style="width: 700px; height: 500px"
-    v-model:visible="previewVisible"
-    :footer="null"
-    width="auto"
-  >
-    <img
-      alt="example"
-      style="width: 100%; margin: 30px 10px 0px 10px"
+  <a-image
+      :width="200"
+      :style="{ display: 'none' }"
+      :preview="{
+        visible,
+        onVisibleChange: setVisible,
+      }"
       :src="previewImage"
     />
-  </a-modal>
 </template>
 
 <script setup lang="ts">
 import { ref, watch } from "vue";
 import { PlusOutlined } from "@ant-design/icons-vue";
 import { message } from "ant-design-vue";
+defineOptions({
+  name: "ths-img-upload", //组件名
+});
 const props = defineProps({
   fileList: {
     type: Array,
@@ -42,12 +44,24 @@ const props = defineProps({
     type: Number,
     default: 1,
   },
+  multiple:{
+    type:Boolean,
+    defalut:true
+  },
+  disabled:{
+    type:Boolean,
+    defalut:false
+  }
 });
 const fileList: any = ref(props.fileList); // 用于存储上传的文件列表
 const maxCount = ref(props.maxCount);
+const multiple = ref(props.multiple);
+const disabled = ref(props.disabled);
 const previewImage = ref(""); // 预览图片的 URL
-const previewVisible = ref(false); // 控制预览图片的显示
-
+const visible = ref<boolean>(false);
+const setVisible = (value): void => {
+  visible.value = value;
+};
 watch(
   () => props.fileList,
   (newval) => {
@@ -101,7 +115,8 @@ const customRequest = (options) => {
 // 处理图片预览
 const handlePreview = (file) => {
   previewImage.value = file.url; // 设置预览图片的 URL
-  previewVisible.value = true; // 打开预览弹窗
+  // previewVisible.value = true; // 打开预览弹窗
+  setVisible(true);
 };
 
 // 处理图片删除

@@ -86,7 +86,7 @@ const formData = reactive(
     rule: [{ required: true, message: "请输入名称!" }],
   },
   {
-    type: "textarea", // 表单类型 input
+    type: "textarea", // 表单类型 textarea
     value: null,
     label: "个人简介",
     filedName: "self",
@@ -96,14 +96,14 @@ const formData = reactive(
     span:24
   },
   {
-    type: "switch", // 表单类型 input
+    type: "switch", // 表单类型 switch
     value: null,
     label: "是否开启",
     filedName: "isOpen",
     // span: 8,
   },
   {
-    type: "select", // 表单类型 input
+    type: "select", // 表单类型 select
     value: 2,
     label: "选择部门",
     filedName: "department",
@@ -115,7 +115,7 @@ const formData = reactive(
     ],
   },
   {
-    type: "radio", // 表单类型 input
+    type: "radio", // 表单类型 radio
     value: null,
     label: "选择类型",
     filedName: "radioType",
@@ -126,7 +126,7 @@ const formData = reactive(
     ],
   },
   {
-    type: "checkbox", // 表单类型 input
+    type: "checkbox", // 表单类型 checkbox
     value: null,
     label: "选择组合",
     filedName: "checkboxType",
@@ -137,21 +137,21 @@ const formData = reactive(
     ],
   },
   {
-    type: "singleDate", // 表单类型 input
+    type: "singleDate", // 表单类型 Date
     value: null,
     label: "单个日期",
     filedName: "singleDate",
     // span: 8,
   },
   {
-    type: "rangeDate", // 表单类型 input
+    type: "rangeDate", // 表单类型 rangeDate
     value: [],
     label: "日期范围",
     filedName: "rangeDate",
     // span: 8,
   },
    {
-    type: "slot", // 表单类型 input
+    type: "slot", // 表单类型 插槽
     value: null,
     label: "文件上传",
     filedName: "upload",

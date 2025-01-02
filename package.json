@@ -10,19 +10,25 @@
     "build:components": "node --trace-warnings ./build/build.js",
     "build:components-h5": "node --trace-warnings ./build/build-h5.js",
     "build:web-components": "node --trace-warnings ./build/build-web.js",
+    "build:echarts-components": "node --trace-warnings ./build/build-echarts.js",
     "lib": "npm run build:components",
     "lib:eb-h5-ui": "npm run build:components-h5",
-    "lib:eb-web-ui": "npm run build:web-components"
+    "lib:eb-web-ui": "npm run build:web-components",
+    "lib:eb-echarts-ui": "npm run build:echarts-components"
   },
   "dependencies": {
     "ant-design-vue": "^4.2.6",
     "dayjs": "^1.11.13",
+    "echarts": "^5.5.1",
     "element-plus": "^2.7.7",
     "js-audio-recorder": "^1.0.7",
-    "pinia": "^2.1.7",
+    "llh-echarts": "^1.0.0",
+    "llh-web-components": "^1.1.4",
+    "rollup-plugin-visualizer": "^5.12.0",
     "vant": "^4.9.2",
     "vue": "^3.4.31",
-    "vue-router": "^4.4.0"
+    "vue-router": "^4.4.0",
+    "vuedraggable": "^2.24.3"
   },
   "devDependencies": {
     "@vant/auto-import-resolver": "^1.2.1",

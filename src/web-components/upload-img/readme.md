@@ -13,7 +13,11 @@ type FileObj = {
 }
 ```
 ## maxCount
-- 最大上传数量
+- 最大上传数量 type:Number
+## multiple
+- 是否支持多选文件 type:Boolean
+## disabled
+- 是否禁用
 # 事件
 ## delFile
 - 删除文件事件

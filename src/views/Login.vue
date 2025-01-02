@@ -26,24 +26,24 @@
 <script setup>
 import { ref } from "vue"
 import { useRouter } from "vue-router"
-import {useCounterStore} from '@/store/menu'
+// import {useCounterStore} from '@/store/menu'
 const userInfo = ref({
   username: "admin",
   password: "123"
 })
 
 const router = useRouter()
-const store = useCounterStore()
+// const store = useCounterStore()
 const onSubmit = () => {
   if (!userInfo.value.username) {
     alert("请先选择角色！")
     return false
   }
   //触发登陆，保存信息，添加路由
-  store.login(userInfo.value).then(() => {
-    console.log("登陆跳转")
-    router.push({ path: "/home" })
-  })
+  // store.login(userInfo.value).then(() => {
+  //   console.log("登陆跳转")
+  //   router.push({ path: "/home" })
+  // })
 //   store.dispatch("login", userInfo.value).then(() => {
 //     console.log("登陆跳转")
 //     router.push({ path: "/home" })
