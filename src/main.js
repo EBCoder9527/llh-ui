@@ -9,6 +9,7 @@ import ThsWebComponnets from "../lib-web/llh-web-ui.js";
 // import ThsWebComponnets from "llh-web-components";
 // import ThsEchartsComponnets from "../lib-echarts/llh-echarts-ui.js";
 import ThsEchartsComponnets from "llh-echarts";
+import PdfComponnets from "llh-pdf";
 // import ElementPlus from "element-plus";
 // import Antd from "ant-design-vue";
 import { ConfigProvider,Button,Image,Upload,UploadDragger,Table,Form,FormItem,Input,Select,Switch,Textarea,Radio,Checkbox,DatePicker,RangePicker,Spin,Col,Row,Tooltip,Modal} from 'ant-design-vue';
@@ -52,6 +53,7 @@ createApp(App)
   // .use(Antd)
   .use(MyComponents.install)
   .use(ThsWebComponnets.install)
+  .use(PdfComponnets.install)
   
   // .use(ThsEchartsComponnets.install)
   // .use(install)

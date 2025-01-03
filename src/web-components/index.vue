@@ -1,11 +1,12 @@
 <template>
   <div class="box">
+    <ths-pdf @getSaveResult="getSaveResult" />
     <!-- <Button text="121" /> -->
-    <ths-form ref="formRef" :formData="formData" >
+    <!-- <ths-form ref="formRef" :formData="formData" >
       <template #upload>
        <ths-img-upload :fileList="fileList" @delFile="delFile" />
       </template>
-    </ths-form>
+    </ths-form> -->
     <!-- <SearchForm ref="formRef" :formData="formData" /> -->
 
     <!-- <Table :columns="columns" :data="data" :spinning="spinning" :pagination="pagination" :rowSelection="rowSelection" @pageChange="pageChange" >
@@ -55,8 +56,11 @@ import MyEacharts from './echarts/index.vue'
 import { message } from "ant-design-vue";
 // const {ths-echarts} = components
 import componentsObj from './index';
+import PDF from '../pdf/index.vue';
 console.log('MyEacharts---',componentsObj);
-
+function getSaveResult(resultObj){
+  console.log('getSaveResult----------',getSaveResult)
+}
 // // const {ThsMyEacharts} = util.components
 const formRef = ref(null)
 const fileList = ref([

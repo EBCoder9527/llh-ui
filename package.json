@@ -11,10 +11,12 @@
     "build:components-h5": "node --trace-warnings ./build/build-h5.js",
     "build:web-components": "node --trace-warnings ./build/build-web.js",
     "build:echarts-components": "node --trace-warnings ./build/build-echarts.js",
+    "build:pdf-components": "node --trace-warnings ./build/build-pdf.js",
     "lib": "npm run build:components",
     "lib:eb-h5-ui": "npm run build:components-h5",
     "lib:eb-web-ui": "npm run build:web-components",
-    "lib:eb-echarts-ui": "npm run build:echarts-components"
+    "lib:eb-echarts-ui": "npm run build:echarts-components",
+    "lib:eb-pdf": "npm run build:pdf-components"
   },
   "dependencies": {
     "ant-design-vue": "^4.2.6",
@@ -23,6 +25,7 @@
     "element-plus": "^2.7.7",
     "js-audio-recorder": "^1.0.7",
     "llh-echarts": "^1.0.0",
+    "llh-pdf": "^1.0.0",
     "llh-web-components": "^1.1.4",
     "rollup-plugin-visualizer": "^5.12.0",
     "vant": "^4.9.2",

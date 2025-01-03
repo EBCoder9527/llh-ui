@@ -932,6 +932,11 @@ llh-echarts@^1.0.0:
   resolved "https://registry.npmjs.org/llh-echarts/-/llh-echarts-1.0.0.tgz#106fabcb943045f953d630cc434c8f8085ae45f7"
   integrity sha512-Lum2AuW8bxytx1+nAgH9cM2lyelJVfm4ySd0WxjUmIcmaxpwR3HuwWV/IEQg+K49Q9OdEmWXDl91dhCq/gLZUQ==
 
+llh-pdf@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.npmjs.org/llh-pdf/-/llh-pdf-1.0.0.tgz#4792d513577433015ed499bfb844063c35d5fef8"
+  integrity sha512-FMFQ3c001bjGGATBr5j2eQDSU0ev1PivOAxsIp21sxTihgaNVj6bo81W0AHoDoOkFcCIc4TMd2Iym0ZplPNifw==
+
 llh-web-components@^1.1.4:
   version "1.1.4"
   resolved "https://registry.npmjs.org/llh-web-components/-/llh-web-components-1.1.4.tgz#db7f9f4d22345de61c938cd354205d9bdf1a5686"

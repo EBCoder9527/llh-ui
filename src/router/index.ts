@@ -2,8 +2,8 @@ import { createRouter, createWebHashHistory } from "vue-router";
 const Login = () => import("../views/Login.vue");
 const Home = () => import("../views/Home.vue");
 const nullPage = () => import("../views/404.vue");
-// const webPage = () => import("../web-components/index.vue");
-const webPage = () => import("../pdf/index.vue");
+const webPage = () => import("../web-components/index.vue");
+// const webPage = () => import("../pdf/index.vue");
 
 //模拟权限路由
 export const authRouter = [
