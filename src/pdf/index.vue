@@ -3,7 +3,7 @@
       <div class="pdf-container">
         <!-- <iframe src="pdfjs/web/viewer.html?file=compressed.tracemonkey-pldi-09.pdf" width="100%" frameborder="0"></iframe> -->
       </div>
-      <ToolBar ref="toolbarRef" pdfIframe="pdfIframe" @getSaveResult="getSaveResult" :getViewerInstance="getViewerInstance"/>
+      <ToolBar ref="toolbarRef" pdfIframe="pdfIframe" @getSaveResult="getSaveResult" @actionSwitchFile="actionSwitchFile" :getViewerInstance="getViewerInstance"/>
 
     </div>
 </template>
@@ -82,7 +82,8 @@ function getViewerInstance() {
 function actionSwitchFile(src) {
   console.log("切换文件", encodeURIComponent(src));
   // pdfIframe.value.src = `./public/pdfjs/web/viewer.html?file=${encodeURIComponent(src)}`
-  pdfIframe.value.src = `./public/pdfjs/web/viewer.html?file=http://192.168.0.115:9080/api/file/Image/annex/658bd7a06bdc07fc5eba4d82.pdf`;
+  createPdfViewer(src)
+  // pdfIframe.value.src = src;
 }
 
 /**跳转页码：注意！页码是从 1 开始的*/
@@ -122,6 +123,17 @@ defineExpose({ getSaveResult });
 </script>
 
 <style lang="less" scoped>
+
+html,
+body {
+  margin: 0;
+  height: 100%;
+  width: 375px;
+  touch-action: pan-x pan-y;
+  /* 禁止双指缩放 */
+  -webkit-user-drag: none;
+  /* 禁止双指拖曳 */
+}
 #app-pdf {
   height: 100%;
   width: 100%;

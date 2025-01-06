@@ -20,4 +20,7 @@ export default defineConfig({
       resolvers: [VantResolver()],
     }),
   ],
+  devServer:{
+    host:'0.0.0.0'
+  }
 })

@@ -1,6 +1,6 @@
 <template>
   <div class="box">
-    <ths-pdf @getSaveResult="getSaveResult" />
+    <PDF @getSaveResult="getSaveResult" pdfUrl="/test.pdf"/>
     <!-- <Button text="121" /> -->
     <!-- <ths-form ref="formRef" :formData="formData" >
       <template #upload>
@@ -31,9 +31,9 @@
       </template>
     </Upload2>
     </div> -->
-    <div style="height:300px">
+    <!-- <div style="height:300px">
       <ths-echarts ref="charts1Ref" domId="charts1" :option="option" />
-    </div>
+    </div> -->
      <!-- <div style="height:300px">
       <MyEacharts domId="charts2" :option="option2" />
     </div>
@@ -386,7 +386,7 @@ setTimeout(() => {
 .box {
   width: 100%;
   height: 100%;
-  padding: 20px;
+  // padding: 20px;
   margin: 0;
   background: #ccc;
 }

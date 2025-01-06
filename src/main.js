@@ -15,7 +15,7 @@ import PdfComponnets from "llh-pdf";
 import { ConfigProvider,Button,Image,Upload,UploadDragger,Table,Form,FormItem,Input,Select,Switch,Textarea,Radio,Checkbox,DatePicker,RangePicker,Spin,Col,Row,Tooltip,Modal} from 'ant-design-vue';
 import zhCN from 'ant-design-vue/es/locale/zh_CN'; 
 // 注意一定要引入样式
-// import "../lib/style.css";
+import "../lib-pdf/style.css";
 // import "../lib-web/style.css";
 import "element-plus/dist/index.css";
 import "ant-design-vue/dist/reset.css";

@@ -1,6 +1,7 @@
 <template>
   <div v-drag class="func-container">
     <div class="set_func">
+    
       <a-tooltip v-if="!isFold">
         <menu-unfold-outlined
           class="anticon"
@@ -14,6 +15,19 @@
           @click="actionToggleSidebar(false)"
         />
         <template #title>关闭侧边栏</template>
+      </a-tooltip>
+        <a-tooltip>
+        <UploadImage
+          :isShowMsg="false"
+          :fileList="fileList2"
+          :maxCount="1"
+          slotType="self"
+          accept="application/pdf"
+          @beforeUpload="beforeUploadPDF"
+        >
+        <FileAddOutlined style="font-size:16px" class="anticon" @click="importPdf" />
+        </UploadImage>
+        <template #title>导入文件</template>
       </a-tooltip>
       <a-tooltip>
         <ZoomInOutlined class="anticon" @click="actionChangeScale('add')" />
@@ -80,10 +94,11 @@ import {
   ExportOutlined,
   MergeCellsOutlined,
   FormOutlined,
+  FileAddOutlined
 } from "@ant-design/icons-vue";
 import { message } from "ant-design-vue";
 import UploadImage from "../web-components/upload/index.vue";
-import { textBecomeImg, base64ConvertFile } from "./util";
+import { textBecomeImg, base64ConvertFile, base64ConvertBlobUrl } from "./util";
 import { AnnotationEditorType, AnnotationEditorParamsType } from "./type";
 const props = defineProps({
   pdfIframe: {
@@ -93,7 +108,7 @@ const props = defineProps({
     type: Function,
   },
 });
-const emits =  defineEmits(['getSaveResult'])
+const emits =  defineEmits(['getSaveResult','actionSwitchFile'])
 // 是否折叠
 const isFold = ref(false);
 // 放大缩小值
@@ -102,6 +117,7 @@ const scaleValue = ref(1);
 const textValue = ref(null);
 // 图片批注数组
 const fileList = ref([]);
+const fileList2 = ref([]);
 // 打开模态框
 const open = ref(false);
 const pdfIframe = ref(props.pdfIframe);
@@ -223,6 +239,27 @@ const beforeUpload = (file, fileList1, isPass) => {
   }
   // 返回true 则走到handleChange，上传文件；返回false则挂起
 };
+
+const beforeUploadPDF = (file, fileList1, isPass) => {
+  // isPass 来决定是否通过上传预处理
+  // if (fileList.value.length > 3) {
+  //   // return false;
+  //   isPass.value = false
+  // }
+  if (file) {
+    const reader = new FileReader();
+    // 当文件读取完成后触发 onload 事件
+    reader.onload = function (e) {
+      const base64String = e.target.result;
+      // 可以在这里处理 base64String，如保存、上传等操作
+      // actionSetImgAnnotation(base64String);
+      emits('actionSwitchFile',base64ConvertBlobUrl(base64String))
+    };
+    // 以 Data URL 的形式读取文件（这会将文件转换为 Base64）
+    reader.readAsDataURL(file);
+  }
+  // 返回true 则走到handleChange，上传文件；返回false则挂起
+};
 /**退出批注模式 */
 function actionCancelAnnotation() {
   actionChangeAnnotation(AnnotationEditorType.NONE);
@@ -266,14 +303,14 @@ defineExpose({ saveFile });
   align-items: center;
   justify-content: center;
   position: fixed;
-  right: 40%;
-  bottom: 6%;
+  right: calc(50% - 150px);
+  bottom: 4%;
   opacity: 0.9;
   cursor: move;
 }
 .set_func {
   background-color: #56a8fe;
-  width: 250px;
+  width: 280px;
   height: 30px;
   display: flex;
   align-items: center;
