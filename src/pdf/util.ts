@@ -72,6 +72,5 @@ export function base64ConvertBlobUrl(base64String) {
 
   //3. 创建 Blob URL
   const blobURL = URL.createObjectURL(blob);
-  console.log('url-----',blobURL)
   return blobURL;
 }

@@ -1,6 +1,6 @@
 <template>
   <div class="box">
-    <PDF @getSaveResult="getSaveResult" pdfUrl="/test.pdf"/>
+    <PDF @getSaveResult="getSaveResult" pdfUrl="/test2.pdf"/>
     <!-- <Button text="121" /> -->
     <!-- <ths-form ref="formRef" :formData="formData" >
       <template #upload>

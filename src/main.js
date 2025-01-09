@@ -12,7 +12,7 @@ import ThsEchartsComponnets from "llh-echarts";
 import PdfComponnets from "llh-pdf";
 // import ElementPlus from "element-plus";
 // import Antd from "ant-design-vue";
-import { ConfigProvider,Button,Image,Upload,UploadDragger,Table,Form,FormItem,Input,Select,Switch,Textarea,Radio,Checkbox,DatePicker,RangePicker,Spin,Col,Row,Tooltip,Modal} from 'ant-design-vue';
+import { ConfigProvider,Button,Image,Upload,UploadDragger,Table,Form,FormItem,Input,Select,Switch,Textarea,Radio,Checkbox,DatePicker,RangePicker,Spin,Col,Row,Tooltip,Modal,Popconfirm} from 'ant-design-vue';
 import zhCN from 'ant-design-vue/es/locale/zh_CN'; 
 // 注意一定要引入样式
 import "../lib-pdf/style.css";
@@ -49,6 +49,7 @@ createApp(App)
   .use(Row)
   .use(Tooltip)
   .use(Modal)
+  .use(Popconfirm)
   .use(ConfigProvider, { locale: zhCN })
   // .use(Antd)
   .use(MyComponents.install)

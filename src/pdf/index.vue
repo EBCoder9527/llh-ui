@@ -52,7 +52,7 @@ function createPdfViewer(pdfUrl) {
     pdfIframe.value.parentNode.removeChild(pdfIframe.value);
   }
   const iframe = document.createElement("iframe");
-  iframe.src = `./pdfjs/web/viewer.html?file=${pdfUrl}`;
+  iframe.src = `/pdfjs/web/viewer.html?file=${pdfUrl}`;
   iframe.style.width = "100%";
   iframe.style.height = "100%";
   iframe.onload = () => {
