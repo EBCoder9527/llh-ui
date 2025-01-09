@@ -11,6 +11,11 @@ node_modules
 dist
 dist-ssr
 *.local
+lib
+lib-echarts
+lib-h5
+lib-pdf
+lib-web
 
 # Editor directories and files
 .vscode/*
