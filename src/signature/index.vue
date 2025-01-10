@@ -47,6 +47,7 @@ import { message } from "ant-design-vue";
 import { reactive, ref } from "vue";
 import vueEsign from "vue-esign";
 import { DownCircleOutlined, DeleteOutlined } from "@ant-design/icons-vue";
+import {Button,Popconfirm} from 'ant-design-vue'
 const vueEsignRef = ref(null);
 const images = ref([]);
 // 签名操作类型

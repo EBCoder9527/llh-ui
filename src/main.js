@@ -5,30 +5,53 @@ import App from "./App.vue";
 import { router } from "./router";
 // 引入组件
 import MyComponents from "../lib/llh-ui.js";
-import ThsWebComponnets from "../lib-web/llh-web-ui.js";
+import ThsWebComponnets from "llh-pdf";
 // import ThsWebComponnets from "llh-web-components";
 // import ThsEchartsComponnets from "../lib-echarts/llh-echarts-ui.js";
 import ThsEchartsComponnets from "llh-echarts";
-import PdfComponnets from "llh-pdf";
+import PdfComponnets from "../lib-pdf/llh-pdf.js";
 // import ElementPlus from "element-plus";
 // import Antd from "ant-design-vue";
-import { ConfigProvider,Button,Image,Upload,UploadDragger,Table,Form,FormItem,Input,Select,Switch,Textarea,Radio,Checkbox,DatePicker,RangePicker,Spin,Col,Row,Tooltip,Modal,Popconfirm} from 'ant-design-vue';
-import zhCN from 'ant-design-vue/es/locale/zh_CN'; 
+import {
+  ConfigProvider,
+  Button,
+  Image,
+  Upload,
+  UploadDragger,
+  Table,
+  Form,
+  FormItem,
+  Input,
+  Select,
+  Switch,
+  Textarea,
+  Radio,
+  Checkbox,
+  DatePicker,
+  RangePicker,
+  Spin,
+  Col,
+  Row,
+  // Tooltip,
+  Modal,
+  Popconfirm,
+} from "ant-design-vue";
+import zhCN from "ant-design-vue/es/locale/zh_CN";
 // 注意一定要引入样式
-import "../lib-pdf/style.css";
+import "llh-pdf/style.css";
 // import "../lib-web/style.css";
 import "element-plus/dist/index.css";
 import "ant-design-vue/dist/reset.css";
 //路由钩子权限
 import "@/permission.js";
-import dragDirective from './directive/dragger'
-console.log(';;;;;;;;;;;;;',dragDirective)
+import dragDirective from "./directive/dragger";
+console.log(";;;;;;;;;;;;;", dragDirective);
 // const pinia = createPinia();
 createApp(App)
-.use(router)
+  .use(router)
   // .use(pinia)
   // .use(ElementPlus)
-  .directive('drag',dragDirective)
+  .directive("drag", dragDirective)
   .use(Button)
   .use(Image)
   .use(Upload)
@@ -47,7 +70,7 @@ createApp(App)
   .use(Spin)
   .use(Col)
   .use(Row)
-  .use(Tooltip)
+  // .use(Tooltip)
   .use(Modal)
   .use(Popconfirm)
   .use(ConfigProvider, { locale: zhCN })
@@ -55,7 +78,7 @@ createApp(App)
   .use(MyComponents.install)
   .use(ThsWebComponnets.install)
   .use(PdfComponnets.install)
-  
+
   // .use(ThsEchartsComponnets.install)
   // .use(install)
 

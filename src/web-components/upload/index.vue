@@ -30,7 +30,7 @@
 import { message } from "ant-design-vue";
 import { UploadOutlined } from "@ant-design/icons-vue";
 import { ref, watch } from "vue";
-import type { UploadChangeParam, UploadProps } from "ant-design-vue";
+import type { UploadChangeParam, UploadProps,Upload,Button } from "ant-design-vue";
 defineOptions({
   name: "ths-upload", //组件名
 });

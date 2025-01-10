@@ -25,9 +25,10 @@
     "element-plus": "^2.7.7",
     "js-audio-recorder": "^1.0.7",
     "llh-echarts": "^1.0.0",
-    "llh-pdf": "^1.0.0",
+    "llh-pdf": "^1.0.3",
     "llh-web-components": "^1.1.4",
     "rollup-plugin-visualizer": "^5.12.0",
+    "unplugin-vue-components": "^28.0.0",
     "vant": "^4.9.2",
     "vue": "^3.4.31",
     "vue-esign": "^1.1.4",
@@ -38,8 +39,7 @@
     "@vant/auto-import-resolver": "^1.2.1",
     "@vitejs/plugin-vue": "^5.0.5",
     "less": "^4.2.0",
-    "unplugin-auto-import": "^0.18.0",
-    "unplugin-vue-components": "^0.27.3",
-    "vite": "^5.3.4"
+    "vite": "^5.3.4",
+    "vite-plugin-components": "^0.13.3"
   }
 }

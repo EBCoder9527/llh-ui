@@ -1,12 +1,36 @@
 {
-  "name": "llh-pdf",
-  "version": "1.0.0",
-  "description": "",
-  "main": "llh-pdf.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": ["pdf","vue"],
-  "author": "",
-  "license": "ISC"
-}
+    "name": "llh-pdf",
+    "version": "1.0.6",
+    "description": "",
+    "main": "llh-pdf.umd.cjs",
+    "module": "llh-pdf.js",
+    "type": "module",
+    "exports": {
+      ".": {
+              "import": "./llh-pdf.js",
+        "require": "./llh-pdf.umd.cjs"
+      },
+      "./style.css": {  
+        "import": "./style.css",
+        "require": "./style.css"
+      }
+    },
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "dependencies": {
+      "unplugin-vue-components": "^0.21.2",
+      "vue": "^3.2.37"
+    },
+    "devDependencies": {
+      "@vitejs/plugin-vue": "^3.0.0",
+      "ant-design-vue": "^3.2.10",
+      "less": "^4.1.3",
+      "typescript": "^4.6.4",
+      "vite": "^3.0.0",
+      "vue-tsc": "^0.38.4"
+    },
+    "keywords": ["vue","pdf"],
+    "author": "eb",
+    "license": "ISC"
+  }

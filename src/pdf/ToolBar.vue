@@ -1,13 +1,13 @@
 <template>
   <div v-drag class="func-container">
     <div class="set_func">
-      <a-tooltip v-if="!isFold">
+      <Tooltip v-if="!isFold">
         <menu-unfold-outlined
           class="anticon"
           @click="actionToggleSidebar(true)"
         />
         <template #title>打开侧边栏</template>
-      </a-tooltip>
+      </Tooltip>
       <a-tooltip v-if="isFold">
         <menu-fold-outlined
           class="anticon"
@@ -179,7 +179,7 @@ import {
   LockOutlined,
   FontColorsOutlined,
 } from "@ant-design/icons-vue";
-import { message } from "ant-design-vue";
+import { message,Tooltip,Form,Modal,Button,Textarea,Select } from "ant-design-vue";
 import UploadImage from "../web-components/upload/index.vue";
 import Signature from "../signature/index.vue";
 import { textBecomeImg, base64ConvertFile, base64ConvertBlobUrl } from "./util";
