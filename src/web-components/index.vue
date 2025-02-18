@@ -1,13 +1,13 @@
 <template>
   <div class="box">
-    <ths-pdf @getSaveResult="getSaveResult" pdfUrl="/test2.pdf"/>
+    <!-- <ths-pdf @getSaveResult="getSaveResult" pdfUrl="/test2.pdf"/> -->
     <!-- <Button text="121" /> -->
-    <!-- <ths-form ref="formRef" :formData="formData" >
+    <ths-form ref="formRef" :formData="formData" >
       <template #upload>
        <ths-img-upload :fileList="fileList" @delFile="delFile" />
       </template>
-    </ths-form> -->
-    <!-- <SearchForm ref="formRef" :formData="formData" /> -->
+    </ths-form>
+    <SearchForm ref="formRef" :formData="formData" />
 
     <!-- <Table :columns="columns" :data="data" :spinning="spinning" :pagination="pagination" :rowSelection="rowSelection" @pageChange="pageChange" >
       <template v-slot:name="{record}">

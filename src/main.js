@@ -5,11 +5,11 @@ import App from "./App.vue";
 import { router } from "./router";
 // 引入组件
 import MyComponents from "../lib/llh-ui.js";
-import ThsWebComponnets from "llh-pdf";
-// import ThsWebComponnets from "llh-web-components";
+// import ThsWebComponnets from "llh-pdf";
+import ThsWebComponnets from "llh-web-components";
 // import ThsEchartsComponnets from "../lib-echarts/llh-echarts-ui.js";
 import ThsEchartsComponnets from "llh-echarts";
-import PdfComponnets from "../lib-pdf/llh-pdf.js";
+// import PdfComponnets from "../lib-pdf/llh-pdf.js";
 // import ElementPlus from "element-plus";
 // import Antd from "ant-design-vue";
 import {
@@ -39,12 +39,13 @@ import {
 import zhCN from "ant-design-vue/es/locale/zh_CN";
 // 注意一定要引入样式
 import "llh-pdf/style.css";
-// import "../lib-web/style.css";
+import "../lib-pdf/style.css";
 import "element-plus/dist/index.css";
 import "ant-design-vue/dist/reset.css";
 //路由钩子权限
 import "@/permission.js";
 import dragDirective from "./directive/dragger";
+import trimDirective from "./directive/trim";
 console.log(";;;;;;;;;;;;;", dragDirective);
 // const pinia = createPinia();
 createApp(App)
@@ -52,6 +53,7 @@ createApp(App)
   // .use(pinia)
   // .use(ElementPlus)
   .directive("drag", dragDirective)
+  .directive("trim", trimDirective)
   .use(Button)
   .use(Image)
   .use(Upload)
@@ -77,7 +79,7 @@ createApp(App)
   // .use(Antd)
   .use(MyComponents.install)
   .use(ThsWebComponnets.install)
-  .use(PdfComponnets.install)
+  // .use(PdfComponnets.install)
 
   // .use(ThsEchartsComponnets.install)
   // .use(install)

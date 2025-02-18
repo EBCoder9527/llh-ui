@@ -14,6 +14,7 @@
           <a-input
             v-if="data.type === 'input'"
             v-model:value="formState[data.filedName]"
+            v-trim:all
             :placeholder="data.placeholder"
             :disabled="data.disabled || false"
             :style="data.style"
