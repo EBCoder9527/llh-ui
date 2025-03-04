@@ -1,7 +1,7 @@
 <template>
   <!-- <button @click="showDialog = true">打开上传对话框</button> -->
 
-  <teleport to="body">
+  <!-- <teleport to="main"> -->
     <div class="dialog-container">
       <div class="dialog-wrapper">
         <div class="left-pane">
@@ -28,11 +28,11 @@
         <button v-if="previewData&&showDialog" class="close-btn" @click="showDialog = false">×</button>
       </div>
     </div>
-  </teleport>
+  <!-- </teleport> -->
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { onMounted, onUnmounted, ref } from 'vue'
 import PDFViewer from './PDFViewer.vue'
 import Chat from './components/Chat.vue'
 import ImageScroll from './ImagePreview.vue';
@@ -40,7 +40,19 @@ const showDialog = ref(false)
 const previewData = ref(null)
 const fileType = ref('')
 const fileName = ref('')
-
+onMounted(()=>{
+  console.log('AI---PAGE')
+ const dom = document.querySelector('.dialog-container');
+ if(dom){
+  dom.parentNode.style.height = 'calc(100vh - 100px)';
+ }
+})
+onUnmounted(()=>{
+  const dom = document.querySelector('.dialog-container');
+ if(dom){
+  dom.parentNode.style.height = '100%';
+ }
+})
 const handleFileUpload = (e) => {
   const file = e.target.files[0]
   if (!file) return
@@ -67,20 +79,22 @@ const setFileType = type=>{
 
 <style scoped>
 .dialog-container {
-  position: fixed;
+  /* position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0,0,0,0.5);
+  background: rgba(0,0,0,0.5); */
+  height: 100%;
+  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .dialog-wrapper {
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   background: white;
   display: flex;
   border-radius: 8px;
@@ -132,8 +146,8 @@ const setFileType = type=>{
 
 .close-btn {
   position: absolute;
-  right: -30px;
-  top: -20px;
+  right: 0px;
+  top: -10px;
   font-size: 34px;
   background: none;
   border: none;

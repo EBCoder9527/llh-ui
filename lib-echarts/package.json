@@ -1,15 +1,15 @@
 {
-  "name": "llh-echarts",
-  "version": "1.0.0",
-  "description": "echarts vue",
-  "main": "llh-echarts-ui.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [
-    "echarts",
-    "vue"
-  ],
-  "author": "eb",
-  "license": "ISC"
+    "name": "llh-echarts",
+    "version": "1.0.2",
+    "description": "echarts vue",
+    "main": "llh-echarts-ui.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [
+        "echarts",
+        "vue"
+    ],
+    "author": "eb",
+    "license": "ISC"
 }

@@ -1,25 +1,17 @@
 <template>
-  <div class="markdown-content" v-html="renderedContent">
-  </div>
-  </template>
+  <div v-html="renderedMarkdown"></div>
+</template>
 
 <script setup>
-import { computed } from 'vue'
-import marked from 'marked'
-import DOMPurify from 'dompurify'
-
+import {computed,ref} from 'vue'
+import {marked} from 'marked';
 const props = defineProps({
-  content: String
+  textStr:{
+    type:String,
+  }
 })
 
-const renderedContent = computed(() => {
-  return DOMPurify.sanitize(marked(props.content))
-})
+const renderedMarkdown = computed(() => {
+      return marked(props.textStr);
+    });
 </script>
-
-
-<style scoped>
-.markdown-content {
-  /* 添加Markdown样式 */
-}
-</style>

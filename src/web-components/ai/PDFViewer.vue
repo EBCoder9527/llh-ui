@@ -6,8 +6,6 @@
 
 <script setup>
 import { ref, onMounted, watch } from 'vue'
-import * as pdfjsLib from 'pdfjs-dist/build/pdf'
-import 'pdfjs-dist/web/pdf_viewer.css'
 
 const props = defineProps(['base64'])
 const pdfContainer = ref(null)
