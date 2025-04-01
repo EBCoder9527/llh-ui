@@ -3,7 +3,7 @@
       <div class="pdf-container">
         <!-- <iframe src="pdfjs/web/viewer.html?file=compressed.tracemonkey-pldi-09.pdf" width="100%" frameborder="0"></iframe> -->
       </div>
-      <ToolBar ref="toolbarRef" pdfIframe="pdfIframe" @getSaveResult="getSaveResult" @actionSwitchFile="actionSwitchFile" :getViewerInstance="getViewerInstance"/>
+      <ToolBar v-if="showTool" ref="toolbarRef" pdfIframe="pdfIframe" @getSaveResult="getSaveResult" @actionSwitchFile="actionSwitchFile" :getViewerInstance="getViewerInstance"/>
 
     </div>
 </template>
@@ -17,10 +17,14 @@ defineOptions({
 const props = defineProps({
   pdfUrl:{
     type:String,
-    default:'http://192.168.0.115:9080/api/file/Image/annex/658bd7a06bdc07fc5eba4d82.pdf'
+    default:'/test3.pdf'
+  },
+  showTool:{
+    type:Boolean,
+    default:false
   }
 })
-const emits = defineEmits(['getSaveResult'])
+const emits = defineEmits(['getSaveResult','actionSearch'])
 // pdf实例
 let pdfIframe = ref(null);
 // let url = 'http://192.168.0.115:9080/api/file/Image/annex/658bd7a06bdc07fc5eba4d82.pdf'
@@ -119,7 +123,7 @@ function getSaveResult(resultObj){
   }
   
 }
-defineExpose({ getSaveResult });
+defineExpose({ getSaveResult,actionSearch });
 </script>
 
 <style lang="less" scoped>

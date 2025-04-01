@@ -1,6 +1,6 @@
 import { createRouter, createWebHashHistory } from "vue-router";
 const Login = () => import("../views/Login.vue");
-// const Home = () => import("../views/Home.vue");
+const Home = () => import("../views/test.vue");
 const nullPage = () => import("../views/404.vue");
 const webPage = () => import("../web-components/index.vue");
 const AI = () => import("../web-components/ai/index.vue");
@@ -50,11 +50,11 @@ const routes = [
     name: "login",
     component: Login,
   },
-  // {
-  //   path: "/home",
-  //   name: "home",
-  //   component: Home,
-  // },
+  {
+    path: "/home",
+    name: "home",
+    component: Home,
+  },
   {
     path: "/ai",
     name: "ai",
