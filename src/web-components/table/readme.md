@@ -18,6 +18,8 @@
 - 加载动效，详见：https://www.antdv.com/components/spin-cn#api
 ## rowSelection
 - 可选择表格配置，详见：https://www.antdv.com/components/table-cn#rowselection
+## scroll
+- 表格滚动参数，详见：https://www.antdv.com/components/table-cn#scroll
 # 事件回调
 ## pageChange
 - 页码变化触发父组件的相应事件，比如调接口更新对应页码数据

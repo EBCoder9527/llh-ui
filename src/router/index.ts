@@ -4,6 +4,7 @@ const Home = () => import("../views/test.vue");
 const nullPage = () => import("../views/404.vue");
 const webPage = () => import("../web-components/index.vue");
 const AI = () => import("../web-components/ai/index.vue");
+const Test = () => import("../index.vue")
 // const webPage = () => import("../pdf/index.vue");
 
 //模拟权限路由
@@ -37,7 +38,7 @@ export const authRouter = [
   {
     path: "/test",
     name: "test",
-    component: "../views/test.vue",
+    component: Test,
     meta: {
       isSideBar: 1,
     },
@@ -49,6 +50,11 @@ const routes = [
     path: "/login",
     name: "login",
     component: Login,
+  },
+  {
+    path: "/test",
+    name: "test",
+    component: Test,
   },
   {
     path: "/home",

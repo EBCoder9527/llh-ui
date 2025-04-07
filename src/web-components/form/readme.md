@@ -39,6 +39,10 @@ type SelectType = {
   value: string | number | boolean;
 };
 ```
+## hiddenOpenText
+- 隐藏‘收起’｜‘展开’文字，搜索条件少的时候没必要 收起展开功能
+- type:Boolean
+- default:false
 # 事件（抛出的方法）
 ## getValue
 - 获取当前表单的值，并校验相应规则字段

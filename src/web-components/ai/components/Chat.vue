@@ -10,10 +10,10 @@
         <div class="avatar">
           <img
             v-if="message.role === 'user'"
-            src="@/assets/ai/user.png"
+            src="../../../assets/ai/user.png"
             alt="用户头像" 
           />
-          <img v-else src="@/assets/ai/ai.png" alt="AI头像" />
+          <img v-else src="../../../assets/ai/ai.png" alt="AI头像" />
         </div>
 
         <div
@@ -39,7 +39,7 @@
             <div class="file-box" @click="previewFile(message.content)">
               <img
                 style="width: 20px; height: 20px"
-                src="@/assets/ai/file.png"
+                src="../../../assets/ai/file.png"
                 alt=""
               />
               <p>
@@ -70,7 +70,7 @@
       >
         <img
           style="width: 30px; height: 30px"
-          src="@/assets/ai/file.png"
+          src="../../../assets/ai/file.png"
           alt=""
         />
         <input
@@ -90,13 +90,13 @@
         <img
           v-if="isSending || inputText.length === 0"
           style="width: 30px; height: 30px"
-          src="@/assets/ai/send-2.png"
+          src="../../../assets/ai/send-2.png"
           alt=""
         />
         <img
           v-else
           style="width: 30px; height: 30px"
-          src="@/assets/ai/send.png"
+          src="../../../assets/ai/send.png"
           alt=""
         />
       </button>

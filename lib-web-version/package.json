@@ -1,6 +1,6 @@
 {
     "name": "llh-web-components",
-    "version": "1.2.0",
+    "version": "1.1.9",
     "description": "web vue antdv echarts",
     "main": "llh-web-ui.js",
     "scripts": {
