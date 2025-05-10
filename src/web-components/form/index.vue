@@ -82,13 +82,25 @@
             v-show="!hiddenOpenText"
             >展开 <DownOutlined
           /></a>
-          <a v-else v-show="!hiddenOpenText" @click="close" style="margin-right: 16px; color: #1677ff"
+          <a
+            v-else
+            v-show="!hiddenOpenText"
+            @click="close"
+            style="margin-right: 16px; color: #1677ff"
             >收起 <UpOutlined
           /></a>
-          <a-button type="primary" @click="onSubmit"> <template #icon><SearchOutlined style="font-size: 14px;" /></template>
-            搜索</a-button>
-          <a-button style="margin-left: 10px" @click="reset"> <template #icon><ReloadOutlined style="font-size: 12px;" /></template>
-            重置</a-button>
+          <a-button type="primary" @click="onSubmit"
+            > <template #icon
+              ><SearchOutlined style="font-size: 14px"
+            /></template>
+            搜索</a-button
+          >
+          <a-button style="margin-left: 10px" @click="reset"
+            > <template #icon
+              ><ReloadOutlined style="font-size: 12px"
+            /></template>
+            重置</a-button
+          >
         </a-form-item>
       </a-col>
     </a-row>
@@ -99,7 +111,12 @@
 import { reactive, ref, toRaw } from "vue";
 import type { UnwrapRef } from "vue";
 import { Form } from "ant-design-vue";
-import { DownOutlined, UpOutlined,SearchOutlined,ReloadOutlined } from "@ant-design/icons-vue";
+import {
+  DownOutlined,
+  UpOutlined,
+  SearchOutlined,
+  ReloadOutlined,
+} from "@ant-design/icons-vue";
 import dayjs from "dayjs";
 import { FormDataType, SelectType } from "./type";
 import { deepClone } from "../utils/deepClone";
@@ -117,10 +134,10 @@ const props = defineProps({
     type: String,
     default: "form",
   },
-  hiddenOpenText:{
-    type:Boolean,
-    default:false,
-  }
+  hiddenOpenText: {
+    type: Boolean,
+    default: false,
+  },
 });
 const emits = defineEmits(["getValue", "resetValue"]);
 const formData = ref<Array<FormDataType>>(props.formData);
@@ -146,13 +163,12 @@ const onSubmit = () => {
   //   console.log("submit!", toRaw(formState));
   return validate()
     .then((res) => {
-      console.log(res, toRaw(formState));
-      emits("getValue", toRaw(formState),'success');
+      emits("getValue", toRaw(formState), "success");
       return toRaw(formState);
     })
     .catch((err) => {
-      console.log("error", err);
-      emits("getValue", err,'error');
+      console.error("error", err);
+      emits("getValue", err, "error");
       return err;
     });
 };
@@ -162,14 +178,13 @@ const reset = () => {
   for (let key in formState) {
     formState[key] = null;
   }
-  console.log('reset 1')
-  emits('resetValue')
+  console.log("reset 1");
+  emits("resetValue");
   // 清除掉错误提示
   resetFields();
 };
 const open = () => {
   isOpen.value = false;
-  console.log("open", props.formData);
   if (formDataCopy.length > 3) {
     formData.value = formDataCopy;
   }
@@ -183,7 +198,25 @@ const close = () => {
   }
   console.log("close", props.formData, formData.value);
 };
-defineExpose({ onSubmit, reset,formState });
+const setFormValue = (key, value) => {
+  if (!(key in formState)) {
+    console.error(`该表单没有 ${key} 属性！`);
+    return;
+  }
+  formState[key] = value;
+};
+const getFormValue = (key?) => {
+  if (key) {
+    if (!(key in formState)) {
+      console.error(`该表单没有 ${key} 属性！`);
+      return;
+    }
+    return formState[key];
+  } else {
+    return formState;
+  }
+};
+defineExpose({ onSubmit, reset, setFormValue, getFormValue });
 const labelCol = { style: { width: "150px" } };
 const wrapperCol = { span: 24 };
 </script>

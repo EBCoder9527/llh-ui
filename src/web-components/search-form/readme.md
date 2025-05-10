@@ -46,6 +46,12 @@ type FormDataType = {
 - type:'success'|'error'
 ## resetValue()
 - 重置当前表单所有字段的值的回调函数
+## setFormValue(key,value)
+- 设置表单某一个字段的值
+- 两个参数，第一个参数为字段的key值，第二个参数为设置的value值
+## getFormValue(key)
+- 获取表单指定字段的值，或者所有字段的value值（除slot外）
+- 一个参数。非必传，传递一个字段的key即可获取对应的value值，不传参数则获取所有字段的value值（除slot外）
 # 示例代码
 ```vue
 <template>
@@ -99,6 +105,19 @@ const getFormData = async (data,status) => {
 const resetFormData = () => {
   alert('reset')
 };
+
+// 设置表单某个字段的值
+const setFormValue = () =>{
+  formRef.value.setFormValue('name','李帅');
+}
+
+// 获取表单某个/所有字段的值
+const setFormValue = () =>{
+  // 获取name字段的值
+  formRef.value.getFormValue('name');
+  // 获取表单所有字段的值
+  formRef.value.getFormValue();
+}
 </script>
 ```
 # 注意

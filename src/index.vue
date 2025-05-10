@@ -3,7 +3,8 @@
     class="review-system-outer-box"
     style="background-color: #fff; height: 100%; overflow: hidden"
   >
-    <ths-search-form ref="formRef" :formData="formData" @getValue="getFormData" @resetValue="resetFormData"/>
+    <ThsSearchForm ref="formRef" :formData="formData"/>
+    <button @click="getFormData">get data</button>
     <!-- <ths-table
       :columns="myProjectColumns"
       :data="data"
@@ -20,7 +21,7 @@
         <a>{{ record.address }}</a>
       </template>
     </ths-table> -->
-    <ths-pdf pdfUrl="/test2.pdf" @getSaveResult="handleSaveResult" showTool  />
+    <!-- <ths-pdf pdfUrl="/test2.pdf" @getSaveResult="handleSaveResult" showTool  /> -->
     <!-- <ThsPdf1 pdfUrl="/test2.pdf" @getSaveResult="handleSaveResult" /> -->
  </div>
 </template>
@@ -32,6 +33,7 @@ import ThsTable from './web-components/table/index.vue';
 import ThsPdf1 from './pdf/index.vue'
 // import ThsSearchForm from './w';
 import ThsSearchForm from './web-components/search-form/index.vue';
+import ThsForm from './web-components/form/index.vue';
 const formRef = ref(null);
 const columns = [
   {
@@ -169,14 +171,13 @@ const formData = ref([
   },
 ]);
 
-const getFormData = async (data,status) => {
-  console.log("formRef.value----", data,status);
+const getFormData = async () => {
+  console.log('formref---',formRef.value.getFormValue())
+  formRef.value.setFormValue('name','ceshi');
+  formRef.value.setFormValue('type2','3');
+  console.log('formref---',formRef.value.getFormValue('type'))
+  console.log('formref---',formRef.value.getFormValue())
 };
-setTimeout(() => {
-  console.log( formData.value)
-  formData.value[0].value = '12222222222222'
-  console.log( formData.value)
-}, 2000);
 // 重置表单
 const resetFormData = () => {
   alert('reset')

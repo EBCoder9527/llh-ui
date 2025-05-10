@@ -29,10 +29,15 @@ const getValue = (data,status)=>{
   emit('getValue',data,status);
 }
 const resetValue = ()=>{
-  console.log('reset 2')
   emit('resetValue');
 }
-defineExpose({formState:formRef.value.formState})
+const setFormValue = (key, value) => {
+  formRef.value&&formRef.value.setFormValue(key,value);
+};
+const getFormValue = (key?) => {
+  return formRef.value&&formRef.value.getFormValue(key);
+};
+defineExpose({setFormValue,getFormValue})
 </script>
 
 <style lang='less' scoped>
