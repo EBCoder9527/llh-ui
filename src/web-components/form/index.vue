@@ -4,7 +4,7 @@
       <a-col
         v-for="(data, index) in formData"
         :key="index"
-        :span="data.span || 12"
+        :span="data.span ?? 12"
       >
         <a-form-item
           :label="data.label"
@@ -14,7 +14,6 @@
           <a-input
             v-if="data.type === 'input'"
             v-model:value="formState[data.filedName]"
-            v-trim:all
             :placeholder="data.placeholder"
             :disabled="data.disabled || false"
             :style="data.style"
@@ -43,6 +42,7 @@
             :options="data.selectValue"
             :disabled="data.disabled || false"
             :style="data.style"
+            @change="data.change"
           ></a-select>
           <a-radio-group
             v-if="data.type === 'radio'"
@@ -85,9 +85,9 @@
           <a v-else v-show="!hiddenOpenText" @click="close" style="margin-right: 16px; color: #1677ff"
             >收起 <UpOutlined
           /></a>
-          <a-button type="primary" @click="onSubmit"> <template #icon><SearchOutlined /></template>
+          <a-button type="primary" @click="onSubmit"> <template #icon><SearchOutlined style="font-size: 14px;" /></template>
             搜索</a-button>
-          <a-button style="margin-left: 10px" @click="reset"> <template #icon><ReloadOutlined /></template>
+          <a-button style="margin-left: 10px" @click="reset"> <template #icon><ReloadOutlined style="font-size: 12px;" /></template>
             重置</a-button>
         </a-form-item>
       </a-col>
@@ -183,7 +183,7 @@ const close = () => {
   }
   console.log("close", props.formData, formData.value);
 };
-defineExpose({ onSubmit, reset });
+defineExpose({ onSubmit, reset,formState });
 const labelCol = { style: { width: "150px" } };
 const wrapperCol = { span: 24 };
 </script>

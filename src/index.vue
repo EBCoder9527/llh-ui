@@ -4,7 +4,7 @@
     style="background-color: #fff; height: 100%; overflow: hidden"
   >
     <ths-search-form ref="formRef" :formData="formData" @getValue="getFormData" @resetValue="resetFormData"/>
-    <ths-table
+    <!-- <ths-table
       :columns="myProjectColumns"
       :data="data"
       :spinning="spinning"
@@ -19,14 +19,18 @@
       <template v-slot:address="{ record }">
         <a>{{ record.address }}</a>
       </template>
-    </ths-table>
-  </div>
+    </ths-table> -->
+    <ths-pdf pdfUrl="/test2.pdf" @getSaveResult="handleSaveResult" showTool  />
+    <!-- <ThsPdf1 pdfUrl="/test2.pdf" @getSaveResult="handleSaveResult" /> -->
+ </div>
 </template>
 
 <script setup lang="ts">
 import { ref, reactive } from "vue";
 import { myProjectColumns } from './columns';
 import ThsTable from './web-components/table/index.vue';
+import ThsPdf1 from './pdf/index.vue'
+// import ThsSearchForm from './w';
 import ThsSearchForm from './web-components/search-form/index.vue';
 const formRef = ref(null);
 const columns = [
@@ -125,7 +129,7 @@ const formData1 = reactive([
   // },
   
 ]);
-const formData = [
+const formData = ref([
   {
     type: "input", // 表单类型 input
     value: null,
@@ -146,6 +150,9 @@ const formData = [
       { label: "二", value: "2" },
       { label: "三", value: "3" },
     ],
+    change:(e)=>{
+      console.log(e);
+    }
   },
   {
     type: "select", // 表单类型 select
@@ -160,11 +167,16 @@ const formData = [
       { label: "三", value: "3" },
     ],
   },
-];
+]);
+
 const getFormData = async (data,status) => {
   console.log("formRef.value----", data,status);
-  
 };
+setTimeout(() => {
+  console.log( formData.value)
+  formData.value[0].value = '12222222222222'
+  console.log( formData.value)
+}, 2000);
 // 重置表单
 const resetFormData = () => {
   alert('reset')

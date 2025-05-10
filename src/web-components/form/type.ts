@@ -24,6 +24,7 @@ export type FormDataType = {
     selectValue?: Array<SelectType>; // 下拉选择框options数据
     radioValue?: Array<SelectType>; // radio 数据
     checkboxValue?: Array<SelectType>; // checkbox 数据
+    change?:Function;// change 事件
   };
 
 export type SelectType = {

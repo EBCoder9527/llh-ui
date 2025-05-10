@@ -18,8 +18,15 @@
 - 加载动效，详见：https://www.antdv.com/components/spin-cn#api
 ## rowSelection
 - 可选择表格配置，详见：https://www.antdv.com/components/table-cn#rowselection
+## rowKey
+- 表格行 key 的取值，可以是字符串或一个函数
+- type：string|Function(record):string
+- 默认值：'key'
 ## scroll
 - 表格滚动参数，详见：https://www.antdv.com/components/table-cn#scroll
+- ## bordered
+- 是否显示表格线,默认不显示
+- type：Boolean，default:false;
 # 事件回调
 ## pageChange
 - 页码变化触发父组件的相应事件，比如调接口更新对应页码数据

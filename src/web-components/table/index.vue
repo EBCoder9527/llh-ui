@@ -8,6 +8,8 @@
       :rowSelection="rowSelection"
       :loading="loading"
       :scroll="scroll"
+      :bordered="bordered"
+      :rowKey="rowKey"
     >
       <template #bodyCell="{ column, record }">
         <!-- <template> -->
@@ -59,6 +61,14 @@ const props = defineProps({
   scroll:{
     type:Object,
     default:{},
+  },
+  bordered:{
+    type: Boolean,
+    default: false,
+  },
+  rowKey:{
+    type: String,
+    default: 'key',
   }
 });
 const emits = defineEmits(["pageChange"]);
@@ -75,6 +85,7 @@ const pagination = ref(props.pagination);
 const spinning = ref(props.spinning);
 const loading = ref(props.loading)
 const scroll = ref(props.scroll)
+const rowKey = ref(props.rowKey)
 const pageChange = ({ current, pageSize }) => {
   pagination.value.current = current;
   pagination.value.pageSize = pageSize;

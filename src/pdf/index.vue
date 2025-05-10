@@ -3,7 +3,7 @@
       <div class="pdf-container">
         <!-- <iframe src="pdfjs/web/viewer.html?file=compressed.tracemonkey-pldi-09.pdf" width="100%" frameborder="0"></iframe> -->
       </div>
-      <ToolBar v-if="showTool" ref="toolbarRef" pdfIframe="pdfIframe" @getSaveResult="getSaveResult" @actionSwitchFile="actionSwitchFile" :getViewerInstance="getViewerInstance"/>
+      <ToolBar v-if="showTool" ref="toolbarRef" :pdfIframe="pdfIframe" @getSaveResult="getSaveResult" @actionSwitchFile="actionSwitchFile" :getViewerInstance="getViewerInstance"/>
 
     </div>
 </template>
@@ -11,17 +11,22 @@
 <script setup lang="ts">
 import { onMounted, ref } from "vue";
 import ToolBar from './ToolBar.vue';
+
 defineOptions({
   name: "ths-pdf", //组件名
 });
 const props = defineProps({
-  pdfUrl:{
-    type:String,
-    default:'/test3.pdf'
+  pdfUrl: {
+    type: String,
+    default: '/test3.pdf'
   },
-  showTool:{
-    type:Boolean,
-    default:false
+  showTool: {
+    type: Boolean,
+    default: false
+  },
+  pdfjsPath: {
+    type: String,
+    default: '/pdfjs/web/viewer.html'
   }
 })
 const emits = defineEmits(['getSaveResult','actionSearch'])
@@ -31,9 +36,11 @@ let pdfIframe = ref(null);
 // const pdfUrl = ref("/test.pdf");
 const pdfUrl = ref(props.pdfUrl);
 const toolbarRef = ref(null);
-onMounted(() => {
+const showTool = ref(props.showTool)
+onMounted(()=>{
   createPdfViewer(pdfUrl.value);
-});
+  console.log('llh-pdf----created')
+})
 /** 监听加载状态 */
 function actionListenInit(app: any): void {
   app.initializedPromise.then(() => {
@@ -51,12 +58,13 @@ function actionListenInit(app: any): void {
 
 /** 创建 pdf viewer */
 function createPdfViewer(pdfUrl) {
-  // alert(pdfUrl)
   if (pdfIframe.value) {
     pdfIframe.value.parentNode.removeChild(pdfIframe.value);
   }
   const iframe = document.createElement("iframe");
-  iframe.src = `/pdfjs/web/viewer.html?file=${pdfUrl}`;
+  
+  iframe.src = `${props.pdfjsPath}?file=${encodeURIComponent(pdfUrl)}`;
+  
   iframe.style.width = "100%";
   iframe.style.height = "100%";
   iframe.onload = () => {
@@ -77,6 +85,7 @@ function getViewerInstance() {
   if (pdfIframe.value.contentWindow.document.readyState !== "complete") {
     throw new Error("页面尚未加载完成");
   }
+  console.log('pdfIframe.value.contentWindow',pdfIframe.value.contentWindow)
   const { PDFViewerApplication, PDFViewerApplicationOptions } =
     pdfIframe.value.contentWindow;
   return { PDFViewerApplication, PDFViewerApplicationOptions };

@@ -32,6 +32,7 @@ const resetValue = ()=>{
   console.log('reset 2')
   emit('resetValue');
 }
+defineExpose({formState:formRef.value.formState})
 </script>
 
 <style lang='less' scoped>

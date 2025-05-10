@@ -460,7 +460,7 @@ defineExpose({ saveFile });
   display: flex;
   align-items: center;
   justify-content: center;
-  position: fixed;
+  position: absolute;
   right: calc(50% - 160px);
   bottom: 4%;
   opacity: 0.9;
